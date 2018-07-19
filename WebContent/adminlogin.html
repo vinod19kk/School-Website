@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	jQuery(function() {
+		jQuery('#ticker').tickerme();
+	});
+
+	// js code for news ticker
+
+	(function(e) {
+		e.fn.tickerme = function(t) {
+			var n = e.extend({}, e.fn.tickerme.defaults, t);
+			return this
+					.each(function() {
+						function a() {
+							e(t).hide();
+							e("body").prepend(r).prepend(i);
+							var n = '<div class="container" id="ticker_container">';
+							n += '<div id="newscontent"><div id="news"></div></div>';
+							n += '<div id="controls" style="margin-top:10%;">';
+							n += "</div>";
+							n += "</div>";
+							e(n).insertAfter(t);
+							e(t).children().each(function(t) {
+								s[t] = e(this).html()
+							});
+							f()
+						}
+						function f() {
+							if (o == s.length - 1) {
+								o = 0
+							} else {
+								o++
+							}
+							if (n.type == "fade") {
+								e("#news").fadeOut(
+										n.fade_speed,
+										function() {
+											e("#newscontent").html(
+													'<div id="news">' + s[o]
+															+ "</div>");
+											e("#news").fadeIn(n.fade_speed)
+										})
+							}
+							u = setTimeout(f, n.duration)
+						}
+						var t = e(this);
+						var r = '<svg display="none" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="224" height="32" viewBox="0 0 224 32"><defs><g id="icon-play"><path class="path1" d="M6 4l20 12-20 12z"></path></g><g id="icon-pause"><path class="path1" d="M4 4h10v24h-10zM18 4h10v24h-10z"></path></g><g id="icon-prev"><path class="path1" d="M18 5v10l10-10v22l-10-10v10l-11-11z"></path></g><g id="icon-next"><path class="path1" d="M16 27v-10l-10 10v-22l10 10v-10l11 11z"></path></g></defs></svg>';
+						var i = '<style type="text/css">#ticker_container{width:100%}#newscontent{float:left}#news{display:none}#controls{float:right;height:16px}.icon{display:inline-block;width:16px;height:16px;fill:'
+								+ n.control_colour
+								+ "}.icon:hover{fill:"
+								+ n.control_rollover + "}</style>";
+						var s = [];
+						var o = -1;
+						var u;
+						a();
+						e("a#pause_trigger").click(function() {
+							clearTimeout(u);
+							e(this).hide();
+							e("#play_trigger").show();
+							return false
+						});
+						e("a#play_trigger").click(function() {
+							f();
+							e(this).hide();
+							e("#pause_trigger").show();
+							return false
+						});
+						e("a#prev_trigger").click(
+								function() {
+									if (o == 0) {
+										o = s.length - 1
+									} else {
+										o--
+									}
+									e("#newscontent").html(
+											'<div id="news" style="display:block">'
+													+ s[o] + "</div>");
+									if (n.auto_stop)
+										e("a#pause_trigger").trigger("click");
+									return false
+								});
+						e("a#next_trigger").click(
+								function() {
+									if (o == s.length - 1) {
+										o = 0
+									} else {
+										o++
+									}
+									e("#newscontent").html(
+											'<div id="news" style="display:block">'
+													+ s[o] + "</div>");
+									if (n.auto_stop)
+										e("a#pause_trigger").trigger("click");
+									return false
+								})
+					})
+		};
+		e.fn.tickerme.defaults = {
+			fade_speed : 500,
+			duration : 3e3,
+			auto_stop : true,
+			type : "fade",
+			control_colour : "#333333",
+			control_rollover : "#666666"
+		}
+	})(jQuery)
+</script>
+<style>
+.dropdown .dropdown-menu {
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+	max-height: 0;
+	display: block;
+	overflow: hidden;
+	opacity: 0;
+}
+
+.dropdown:hover .dropdown-menu {
+	max-height: 200px;
+	opacity: 1;
+}
+/* Remove the navbar's default margin-bottom and rounded borders */
+.navbar {
+	margin-bottom: 50px;
+	border-radius: 0;
+}
+
+}
+
+/* Add a gray background color and some padding to the footer */
+footer {
+	background-color: #f2f2f2;
+	padding: 25px;
+}
+
+.carousel-inner img {
+	width: 100%; /* Set width to 100% */
+	margin: auto;
+	min-height: 200px;
+}
+
+/* Hide the carousel text when the screen is less than 600 pixels wide */
+@media ( max-width : 600px) {
+	.carousel-caption {
+		display: none;
+	}
+}
+/* Footer */
+@import
+	url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+	;
+
+section {
+	padding: 60px 0;
+}
+
+section .section-title {
+	text-align: center;
+	color: #007b5e;
+	margin-bottom: 50px;
+	text-transform: uppercase;
+}
+
+#footer {
+	background: black !important;
+}
+
+#footer h5 {
+	padding-left: 10px;
+	border-left: 3px solid #eeeeee;
+	padding-bottom: 6px;
+	margin-bottom: 20px;
+	color: #ffffff;
+}
+
+#footer a {
+	color: #ffffff;
+	text-decoration: none !important;
+	background-color: transparent;
+	-webkit-text-decoration-skip: objects;
+}
+
+#footer ul.social li {
+	padding: 3px 0;
+}
+
+#footer ul.social li a i {
+	margin-right: 5px;
+	font-size: 25px;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+
+#footer ul.social li:hover a i {
+	font-size: 30px;
+	margin-top: -10px;
+}
+
+#footer ul.social li a, #footer ul.quick-links li a {
+	color: #ffffff;
+}
+
+#footer ul.social li a:hover {
+	color: #eeeeee;
+}
+
+#footer ul.quick-links li {
+	padding: 3px 0;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+
+#footer ul.quick-links li:hover {
+	padding: 3px 0;
+	margin-left: 5px;
+	font-weight: 700;
+}
+
+#footer ul.quick-links li a i {
+	margin-right: 5px;
+}
+
+#footer ul.quick-links li:hover a i {
+	font-weight: 700;
+}
+
+@media ( max-width :767px) {
+	#footer h5 {
+		padding-left: 0;
+		border-left: transparent;
+		padding-bottom: 0px;
+		margin-bottom: 10px;
+	}
+}
+
+.jumbotron {
+	margin-bottom: 0px;
+}
+
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus,
+	.navbar-inverse .navbar-nav>.open>a:hover {
+	color: #fff;
+	background-color: #968686;
+}
+</style>
+
+
+</head>
+<body>
+<div class="jumbotron" style="padding-top: -1px;padding-bottom: 2px;padding-top: 0px;">
+  <div class="container text-center">
+    <h1>My Portfolio</h1>      
+    <p>Some text that represents "Me"...</p>
+    <a href="tel: 7893168009" onclick="_gaq.push(['_trackEvent','Phone Call Tracking','Click/Touch','Top Menu']);"><span class="glyphicon glyphicon-earphone"></span> <span class="num">7893168009</span><span class="call"></span></a>
+    <div class="header-info form"><form class="header-search-form" method="get" action="http://www.oakridge.in/" role="search"><div class="input-group"><input type="text" class="form-control" name="s" value="" id="s" placeholder="Search..."><span class="input-group-btn"><button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button></span></div></form></div>
+  </div>
+</div>
+
+<div>
+
+	<nav class="navbar navbar-inverse"
+		style="border-color: transparent; background-color: transparent; margin-bottom: 0px">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#myNavbar">
+					<span class="icon-bar" style="background-color: #589c3ba1;"></span>
+					<span class="icon-bar" style="background-color: #589c3ba1;"></span>
+					<span class="icon-bar" style="background-color: #589c3ba1;"></span>
+				</button>
+				<!--  <a class="navbar-brand" href="#">Logo</a> -->
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li class=""><a href="home.html" style="color: black">Home</a></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-haspopup="true"
+						aria-expanded="false" style="color: black">About Us <span
+							class="caret"></span></a>
+						<ul class="dropdown-menu" style="background-color: #2ccbe461;">
+							<li><a href="overview.html"
+								style="font-family: Tw Cen MT; font-size: 18px;">Overview</a></li>
+							<li><a href="#"
+								style="font-family: Tw Cen MT; font-size: 18px;">Awards &
+									Accolades</a></li>
+
+						</ul></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-haspopup="true"
+						aria-expanded="false" style="color: black">Acadamics <span
+							class="caret"></span></a>
+						<ul class="dropdown-menu" style="background-color: #2ccbe461;">
+							<li><a href="AboutIBProgram.html"
+								style="font-family: Tw Cen MT; font-size: 18px;">About IB
+									Program</a></li>
+							<li><a href="IBPrimaryyearprogram.html"
+								style="font-family: Tw Cen MT; font-size: 18px;">IB Primary
+									years Program</a></li>
+							<li><a href="IBmiddileyear.html"
+								style="font-family: Tw Cen MT; font-size: 18px;">IB Middle
+									year Program</a></li>
+							<li><a href="#"
+								style="font-family: Tw Cen MT; font-size: 18px;">IB Diploma
+									Program</a></li>
+						</ul></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-haspopup="true"
+						aria-expanded="false" style="color: black">Student Life <span
+							class="caret"></span></a>
+						<ul class="dropdown-menu" style="background-color: #2ccbe461;">
+							<li><a href="Aboutstudentlife.html"
+								style="font-family: Tw Cen MT; font-size: 18px;">About
+									StudentLife</a></li>
+							<li><a href="internationalprograms.html"
+								style="font-family: Tw Cen MT; font-size: 18px;">International
+									Programs</a></li>
+							<li><a href="Literaryactivities.html"
+								style="font-family: Tw Cen MT; font-size: 18px;">Literary
+									Activities</a></li>
+							<li><a href="Artsandcultural.html"
+								style="font-family: Tw Cen MT; font-size: 18px;">Art and
+									Cultural</a></li>
+							<li><a href="Sportsandwellness.html"
+								style="font-family: Tw Cen MT; font-size: 18px;">Sports &
+									Wellness</a></li>
+						</ul></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-haspopup="true"
+						aria-expanded="false" style="color: black">Campuses <span
+							class="caret"></span></a>
+						<ul class="dropdown-menu" style="background-color: #2ccbe461;">
+							<li><a href="#"
+								style="font-family: Tw Cen MT; font-size: 18px;">Hyderabad</a></li>
+							<li><a href="#"
+								style="font-family: Tw Cen MT; font-size: 18px;">Warangal</a></li>
+							<li><a href="#"
+								style="font-family: Tw Cen MT; font-size: 18px;">Vishakapatnam</a></li>
+							<li><a href="#"
+								style="font-family: Tw Cen MT; font-size: 18px;">Bengaluru</a></li>
+							<li><a href="#"
+								style="font-family: Tw Cen MT; font-size: 18px;">Delhi</a></li>
+						</ul></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-haspopup="true"
+						aria-expanded="false" style="color: black">Admissions <span
+							class="caret"></span></a>
+						<ul class="dropdown-menu" style="background-color: #2ccbe461;">
+							<li><a href="Indianstuents.html"
+								style="font-family: Tw Cen MT; font-size: 18px;">Indian
+									Students</a></li>
+							<li><a href="internationalstudents.html"
+								style="font-family: Tw Cen MT; font-size: 18px;">International
+									Students</a></li>
+
+
+						</ul></li>
+					<li><a href="carrers.html" style="color: black">Careers</a></li>
+					<li><a href="Contactus.html" style="color: black">Contact
+							Us</a></li>
+
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-haspopup="true"
+						aria-expanded="false" style="color: black">Login <span
+							class="caret"></span></a>
+						<ul class="dropdown-menu" style="background-color: #2ccbe461;">
+							<li><a style="font-family: Tw Cen MT; font-size: 18px;"
+								href="studentlogin.html">Students Login</a></li>
+							<li><a style="font-family: Tw Cen MT; font-size: 18px;"
+								href="teacherslogin.jsp">Teachers Login</a></li>
+							<li><a style="font-family: Tw Cen MT; font-size: 18px;"
+								href="adminlogin.jsp">Admin Login</a></li>
+						</ul></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	</div>
+	<!-- <div class="container-fluid" style="padding-left: 0px;padding-right: 0px;">
+    
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    
+
+    Wrapper for slides
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src="" alt="Los Angeles" style="width:100%;">
+      </div>
+
+     
+  </div>
+</div>
+</div>
+<br> -->
+	
+	<div class="container-fluid">
+	
+		
+		
+	
+		<div class="col-sm-3 col-md-2" id="sidebar-col" style="">
+			<div class="sidebar-nav" id="sidebar-nav"
+				style="background-color: #00ff955e;">
+
+				<ul class="">
+					 <br> <br>
+					<a href="studentlogin.html"
+						style="font-family: serif; font-size: 17px;">Student Login</a>
+					 <br> <br>
+					<a href="#"
+						style="font-family: serif; font-size: 17px;">Teachers Login</a>
+					 <br> <br>
+					<a href="adminlogin.html"
+						style="font-family: serif; font-size: 17px;">Admin Login</a>
+					 <br> <br>
+					
+				</ul>
+			</div>
+		</div>
+		
+
+		<div class="col-sm-6" style="">
+			<h3 style="color: mediumvioletred; font-family: serif;">Admin Login:</h3>
+				<br>
+		<form action="adminlogin" method="post">
+			<div class="input-group">
+				<span class="input-group-addon"><i
+					class="glyphicon glyphicon-user"></i></span> <input id="email" type="text"
+					class="form-control" name="email" placeholder="Email"
+					style="width: 50%;" required="required">
+			</div>
+			<br>
+			<div class="input-group">
+				<span class="input-group-addon"><i
+					class="glyphicon glyphicon-lock"></i></span> <input id="password"
+					type="password" class="form-control" name="password"
+					placeholder="Password" style="width: 50%;" required="required">
+			</div>
+			<br>
+			<button type="submit" class="btn btn-success" style="width: 12%;">Login</button>
+		</form>
+			
+		</div>
+		
+		
+		
+		<div class="col-sm-3">
+			<div class="static-testimonial-box"
+				style="background-color: #f3d9d9;">
+				<span class="fa fa-quote-left quote quote-top"></span>
+				<div class="person-box">
+					<img src="" alt="Photo">
+					<div class="details">
+						<p class="name" style="font-family: Tw Cen MT; font-size: 15px;">My
+							name</p>
+						<p class="designation"
+							style="font-family: Tw Cen MT; font-size: 15px;">Student,
+							Class</p>
+					</div>
+				</div>
+				<blockquote class="testimonial"
+					style="font-family: Tw Cen MT; font-size: 20px;">At My
+					Schol, learning is very enriching. The various activities held at
+					the school has helped me improve my skills in arts. It has been a
+					very good experience for me and helped me build self-confidence.</blockquote>
+				<span class="fa fa-quote-right quote quote-bottom"></span>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	
+		<br><br> 
+		<footer class="container-fluid text-center"
+		style="background-color: black;">
+		<!-- Footer -->
+		<section id="footer">
+			<div class="container">
+				<div
+					class="row text-center text-xs-center text-sm-left text-md-left">
+					<div class="col-xs-12 col-sm-4 col-md-4">
+						<h4 style="font-size: 22px; color: coral;">Admissions</h4>
+						<ul class="list-unstyled quick-links" style="font-size: 16px">
+							<li><a href="javascript:void();"><i
+									class="fa fa-angle-double-right"></i>Notifications</a></li>
+							<li><a href="javascript:void();"><i
+									class="fa fa-angle-double-right"></i>Enquiry</a></li>
+							<li><a href="javascript:void();"><i
+									class="fa fa-angle-double-right"></i>Work With Us</a></li>
+						</ul>
+					</div>
+					<div class="col-xs-12 col-sm-4 col-md-4">
+						<h4 style="font-size: 22px; color: coral;">Campus Life</h4>
+						<ul class="list-unstyled quick-links" style="font-size: 16px">
+							<li><a href="javascript:void();"><i
+									class="fa fa-angle-double-right"></i>Facilities</a></li>
+							<li><a href="javascript:void();"><i
+									class="fa fa-angle-double-right"></i>Events</a></li>
+						</ul>
+					</div>
+					<div class="col-xs-12 col-sm-4 col-md-4">
+						<h4 style="font-size: 22px; color: coral;">Admissions</h4>
+						<ul class="list-unstyled quick-links" style="font-size: 16px">
+							<li><a href="javascript:void();"><i
+									class="fa fa-angle-double-right"></i>Notifications</a></li>
+							<li><a href="javascript:void();"><i
+									class="fa fa-angle-double-right"></i>Enquiry</a></li>
+							<li><a href="javascript:void();"><i
+									class="fa fa-angle-double-right"></i>Work With Us</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+		</section>
+
+	</footer>
+</body>
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Home</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	
+	<script type="text/javascript">jQuery(function(){
+		jQuery('#ticker').tickerme();
+	});
+	
+	
+	
+	// js code for news ticker
+	
+	(function(e){e.fn.tickerme=function(t){var n=e.extend({},e.fn.tickerme.defaults,t);return this.each(function(){function a(){e(t).hide();e("body").prepend(r).prepend(i);var n='<div class="container" id="ticker_container">';n+='<div id="newscontent"><div id="news"></div></div>';n+='<div id="controls" style="margin-top:10%;">';n+="</div>";n+="</div>";e(n).insertAfter(t);e(t).children().each(function(t){s[t]=e(this).html()});f()}function f(){if(o==s.length-1){o=0}else{o++}if(n.type=="fade"){e("#news").fadeOut(n.fade_speed,function(){e("#newscontent").html('<div id="news">'+s[o]+"</div>");e("#news").fadeIn(n.fade_speed)})}u=setTimeout(f,n.duration)}var t=e(this);var r='<svg display="none" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="224" height="32" viewBox="0 0 224 32"><defs><g id="icon-play"><path class="path1" d="M6 4l20 12-20 12z"></path></g><g id="icon-pause"><path class="path1" d="M4 4h10v24h-10zM18 4h10v24h-10z"></path></g><g id="icon-prev"><path class="path1" d="M18 5v10l10-10v22l-10-10v10l-11-11z"></path></g><g id="icon-next"><path class="path1" d="M16 27v-10l-10 10v-22l10 10v-10l11 11z"></path></g></defs></svg>';var i='<style type="text/css">#ticker_container{width:100%}#newscontent{float:left}#news{display:none}#controls{float:right;height:16px}.icon{display:inline-block;width:16px;height:16px;fill:'+n.control_colour+"}.icon:hover{fill:"+n.control_rollover+"}</style>";var s=[];var o=-1;var u;a();e("a#pause_trigger").click(function(){clearTimeout(u);e(this).hide();e("#play_trigger").show();return false});e("a#play_trigger").click(function(){f();e(this).hide();e("#pause_trigger").show();return false});e("a#prev_trigger").click(function(){if(o==0){o=s.length-1}else{o--}e("#newscontent").html('<div id="news" style="display:block">'+s[o]+"</div>");if(n.auto_stop)e("a#pause_trigger").trigger("click");return false});e("a#next_trigger").click(function(){if(o==s.length-1){o=0}else{o++}e("#newscontent").html('<div id="news" style="display:block">'+s[o]+"</div>");if(n.auto_stop)e("a#pause_trigger").trigger("click");return false})})};e.fn.tickerme.defaults={fade_speed:500,duration:3e3,auto_stop:true,type:"fade",control_colour:"#333333",control_rollover:"#666666"}})(jQuery)
+  </script>
+<style>
+.dropdown .dropdown-menu {
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+	max-height: 0;
+	display: block;
+	overflow: hidden;
+	opacity: 0;
+}
+
+.dropdown:hover .dropdown-menu {
+	max-height: 200px;
+	opacity: 1;
+}
+/* Remove the navbar's default margin-bottom and rounded borders */
+.navbar {
+	margin-bottom: 50px;
+	border-radius: 0;
+}
+
+
+}
+
+/* Add a gray background color and some padding to the footer */
+footer {
+	background-color: #f2f2f2;
+	padding: 25px;
+}
+
+.carousel-inner img {
+	width: 100%; /* Set width to 100% */
+	margin: auto;
+	min-height: 200px;
+}
+
+/* Hide the carousel text when the screen is less than 600 pixels wide */
+@media ( max-width : 600px) {
+	.carousel-caption {
+		display: none;
+	}
+}
+/* Footer */
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+section {
+    padding: 60px 0;
+}
+
+section .section-title {
+    text-align: center;
+    color: #007b5e;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+#footer {
+    background: black !important;
+}
+#footer h5{
+	padding-left: 10px;
+    border-left: 3px solid #eeeeee;
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+    color:#ffffff;
+}
+#footer a {
+    color: #ffffff;
+    text-decoration: none !important;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+#footer ul.social li{
+	padding: 3px 0;
+}
+#footer ul.social li a i {
+    margin-right: 5px;
+	font-size:25px;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+#footer ul.social li:hover a i {
+	font-size:30px;
+	margin-top:-10px;
+}
+#footer ul.social li a,
+#footer ul.quick-links li a{
+	color:#ffffff;
+}
+#footer ul.social li a:hover{
+	color:#eeeeee;
+}
+#footer ul.quick-links li{
+	padding: 3px 0;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+#footer ul.quick-links li:hover{
+	padding: 3px 0;
+	margin-left:5px;
+	font-weight:700;
+}
+#footer ul.quick-links li a i{
+	margin-right: 5px;
+}
+#footer ul.quick-links li:hover a i {
+    font-weight: 700;
+}
+
+@media (max-width:767px){
+	#footer h5 {
+    padding-left: 0;
+    border-left: transparent;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+}
+}
+
+.jumbotron
+{
+
+ margin-bottom: 0px;
+}
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
+    color: #fff;
+    background-color: #968686;
+
+</style>
+</head>
+<body background=3.jpg>
+
+	<div class="jumbotron" style="padding-top: -1px;padding-bottom: 2px;padding-top: 0px;">
+  <div class="container text-center">
+    <h1>My Portfolio</h1>      
+    <p>Some text that represents "Me"...</p>
+    <a href="tel: 7893168009" onclick="_gaq.push(['_trackEvent','Phone Call Tracking','Click/Touch','Top Menu']);"><span class="glyphicon glyphicon-earphone"></span> <span class="num">7893168009</span><span class="call"></span></a>
+    <div class="header-info form"><form class="header-search-form" method="get" action="http://www.oakridge.in/" role="search"><div class="input-group"><input type="text" class="form-control" name="s" value="" id="s" placeholder="Search..."><span class="input-group-btn"><button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button></span></div></form></div>
+  </div>
+</div>
+	
+	
+<div>
+		<nav class="navbar navbar-inverse" style="border-color: transparent;background-color: transparent;">
+			<div class="container-fluid" >
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target="#myNavbar">
+						<span class="icon-bar" style=" background-color: #589c3ba1;"></span>
+						<span class="icon-bar" style=" background-color: #589c3ba1;"></span>
+						<span class="icon-bar" style=" background-color: #589c3ba1;"></span>
+					</button>
+					<!--  <a class="navbar-brand" href="#">Logo</a> -->
+				</div>
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav">
+						<li class=""><a href="home.html"  style="color: black">Home</a></li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown" role="button" aria-haspopup="true"
+							aria-expanded="false" style="color: black">About Us <span class="caret"></span></a>
+							<ul class="dropdown-menu" style="background-color: #2ccbe461;">
+								<li><a href="overview.html">Overview</a></li>
+								<li><a href="#">Awards & Accolades</a></li>
+
+							</ul>
+						</li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown" role="button" aria-haspopup="true"
+							aria-expanded="false"  style="color: black">Acadamics <span class="caret"></span></a>
+							<ul class="dropdown-menu" style="background-color: #2ccbe461;">
+								<li><a href="AboutIBProgram.html">About IB Program</a></li>
+								<li><a href="IBPrimaryyearprogram.html">IB Primary years Program</a></li>
+								<li><a href="IBmiddileyear.html">IB Middle year Program</a></li>
+								<li><a href="#">IB Diploma Program</a></li>
+							</ul></li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown" role="button" aria-haspopup="true"
+							aria-expanded="false"  style="color: black">Student Life <span class="caret"></span></a>
+							<ul class="dropdown-menu" style="background-color: #2ccbe461;">
+								<li><a href="Aboutstudentlife.html">About StudentLife</a></li>
+								<li><a href="internationalprograms.html">International Programs</a></li>
+								<li><a href="Literaryactivities.html">Literary Activities</a></li>
+								<li><a href="Artsandcultural.html">Art and Cultural</a></li>
+								<li><a href="Sportsandwellness.html">Sports & Wellness</a></li>
+							</ul>
+						</li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown" role="button" aria-haspopup="true"
+							aria-expanded="false"  style="color: black">Campuses <span class="caret"></span></a>
+							<ul class="dropdown-menu" style="background-color: #2ccbe461;">
+								<li><a href="#">Hyderabad</a></li>
+								<li><a href="#">Warangal</a></li>
+								<li><a href="#">Vishakapatnam</a></li>
+								<li><a href="#">Bengaluru</a></li>
+								<li><a href="#">Delhi</a></li>
+							</ul>
+						</li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown" role="button" aria-haspopup="true"
+							aria-expanded="false"  style="color: black">Admissions <span class="caret"></span></a>
+							<ul class="dropdown-menu" style="background-color: #2ccbe461;">
+								<li><a href="Indianstudents.html">Indian Students</a></li>
+								<li><a href="internationalstudents.html">International Students</a></li>
+
+
+							</ul>
+						</li>
+						<li><a href="carrers.html"  style="color: black">Careers</a></li>
+						<li><a href="Contactus.html"  style="color: black">Contact Us</a></li>
+
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-haspopup="true"
+						aria-expanded="false" style="color: black">Login <span
+							class="caret"></span></a>
+						<ul class="dropdown-menu" style="background-color: #2ccbe461;">
+							<li><a style="font-family: Tw Cen MT; font-size: 18px;"
+								href="studentlogin.html">Students Login</a></li>
+							<li><a style="font-family: Tw Cen MT; font-size: 18px;"
+								href="teacherslogin.jsp">Teachers Login</a></li>
+							<li><a style="font-family: Tw Cen MT; font-size: 18px;"
+								href="adminlogin.html">Admin Login</a></li>
+						</ul></li>
+				</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+
+    <div class="container-fluid" >
+  <div class="row content">
+  <div class="col-xs-12">
+  <div class="container">
+ <h1 style="color: white">Welcome To My School</h1>
+ </div>
+ </div>
+     <div class="col-sm-6 sidenav">
+       <div class="news_tricker">
+            	<div class="news_cover"></div><br>
+                <ul id="ticker">
+					<li><a href='' style="color: chocolate;"><!-- <h4>Business heads back DTI bid for free mall space for MSMEs</h4> --> <img src="background.jpg" style= "width:100%"></a></li>
+                    <li><a href='' style="color: chocolate;"><!-- <h4> OECD-FAO Agricultural Outlook 2016-2025 </h4> --> <img src="bg.jpg" style= "width:100%"></a></li>
+                    <li><a href='' style="color: chocolate;"><!-- <h4> President Mukherjee condoles passing away of A.C. Jose </h4> --> <img src="1.jpg" style= "width:100%"></a></li>
+                    <li><a href='' style="color: chocolate;"><!-- <h4> New International Standard to tackle Informal Economy </h4> --><img src="2.jpg" style= "width:100%"></a></li>
+                </ul>
+            </div>
+    </div>
+    </div>
+    </div><br><br>
+
+
+<div class="container-fluid" >
+  <div class="row content">
+ </div>
+    <div class="col-sm-6">
+   <ul class="nav nav-tabs overview-tabs" role="tablist">
+   <li role="presentation" class="active">
+   <a href="#overview" aria-controls="overview" role="tab" data-toggle="tab">Overview</a></li>
+   <li role="presentation" class="">
+   <a href="#accreditations" aria-controls="accreditations" role="tab" data-toggle="tab">Quick Facts</a></li></ul>
+   <div class="tab-content overview-tabs-content">
+   <div role="tabpanel" class="tab-pane active" id="overview">
+   <article style="text-align:  justify;color: floralwhite;">
+   My School International School, with just a decade of presence, has garnered a strong repertoire to become one of the best international schools in the country. The prestigious international school was started with a mission to build a community of leaders, over a foundation of shared beliefs, values and ethos.</p><p>Oakridge is dedicated to nurturing responsive and motivated students through a dynamic and success oriented education program. The program empowers students to gain an indigenous as well&nbsp;as global perspective on various aspects.
+With its world-class campuses in Hyderabad, Bengaluru, Visakhapatnam, and Chandigarh - My School is regarded as one of India's top International schools with its high standards of teaching methodology, technology collaboration, and global culture in every aspect of learning.
+</article>
+</div>
+
+<div role="tabpanel" class="tab-pane" id="accreditations">
+<p></p><p></p><ul style="color: floralwhite;"> 
+<li>First IB School in South India</li>
+ <li>Second Largest IB School in Asia Pacific</li>
+  <li>Largest pool of IB trained teachers</li>
+   <li>1242 Top University Placements till date</li> 
+   <li>Ranked No.1 International School* by Times of India 3 years in a row</li>
+    <li>Listed 3 years in row in Great Place to Work Survey</li>
+     <li>Conducts largest OAKMUN &amp; TedEx events at school level</li>
+      <li>Students from across 21 different countries</li></ul><p></p>
+      </div>
+      </div>
+      </div> <!-- <div class="col-sm-6"><iframe width="100%" height="350" data-src="https://www.youtube.com/embed/cT6u6TFV2DU?showinfo=0&amp;rel=0" frameborder="0" allowfullscreen="" class="youtube-iframe" src="https://www.youtube.com/embed/cT6u6TFV2DU?showinfo=0&amp;rel=0"></iframe></div> -->
+    </div>
+    
+
+
+
+		<footer class="container-fluid text-center"  style="background-color: black;">
+			<!-- Footer -->
+	<section id="footer">
+		<div class="container">
+			<div class="row text-center text-xs-center text-sm-left text-md-left">
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<h4 style="font-size: 22px;color: coral;">Admissions</h4>
+					<ul class="list-unstyled quick-links" style="font-size: 16px">
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Notifications</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Enquiry</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Work With Us</a></li>
+					</ul>
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<h4 style="font-size: 22px;color: coral;">Campus Life</h4>
+					<ul class="list-unstyled quick-links" style="font-size: 16px">
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Facilities</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Events</a></li>
+					</ul>
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<h4 style="font-size: 22px;color: coral;">Admissions</h4>
+					<ul class="list-unstyled quick-links" style="font-size: 16px">
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Notifications</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Enquiry</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Work With Us</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+	</section>
+	<!-- ./Footer -->
+		</footer>
+</body>
+</html>
